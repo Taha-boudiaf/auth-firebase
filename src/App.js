@@ -1,11 +1,13 @@
 import React from 'react';
-
-
+// import Signup from './component/auth/Signup';
+import Signin from './component/auth/Signin';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="container mx-auto">
+      <Signin/>
+      {/* <Signup/> */}
     </div>
   );
 }
