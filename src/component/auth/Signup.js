@@ -18,7 +18,7 @@ const Signup = () => {
                     </div>
                     <div className="relative  mt-6">
                         <div className="w-full h-px bg-gray-300"></div>
-                        <span className="bg-white text-sm text-gray-400 px-4 absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 flex justify-center">OR Sign In</span>
+                        <span className="bg-white text-sm text-gray-400 px-4 absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 flex justify-center">OR</span>
                     </div>
                     <div className='mt-2'>
                         <div className='mt-4'>

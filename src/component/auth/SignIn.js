@@ -12,7 +12,7 @@ const Login = () => {
                             <img src="https://img.icons8.com/color/48/000000/google-logo.png" className='w-6 h-6 inline-block mr-2'/> 
                             Sign in with Google
                         </button>
-                        <button className='font-semibold shadow-sm border-solid border px-8 py-3 rounded border-cyan-500  mb-4 hover:bg-blue-600 hover:text-white w-1/2 ml-1 whitespace-nowrap'>
+                        <button className='font-semibold shadow-sm border-solid border px-8 py-3 rounded border-cyan-500  mb-4 hover:bg-blue-600 hover:text-white w-1/2 ml-1 whitespace-nowrap text-center'>
                             <img src="https://img.icons8.com/color/48/000000/facebook-new.png" className='w-6 h-6 inline-block  mr-2'/>
                             Sign in with Facebook
                         </button>
