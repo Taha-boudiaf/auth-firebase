@@ -7,19 +7,19 @@ const Login = () => {
         <div className='flex justify-center mt-16 mb-16'>   
             <form className='flex flex-col bg-white rounded px-10 py-10 shadow-lg content-center'>
                 <h1 className='text-5xl font-bold mb-6 text-center'>Sign In</h1>
-                    <div className='relative mt-6 flex justify-between'>
-                        <button className='font-semibold shadow-sm border-solid border px-8 py-1 rounded border-red-500  mb-4 hover:bg-red-500 hover:text-white text-center w-1/2 mr-1'>
+                    <div className='relative mt-6 flex justify-between '>
+                        <button className='font-semibold shadow-sm border-solid border px-8 py-3 rounded border-red-500  mb-4 hover:bg-red-500 hover:text-white w-1/2 mr-1'>
                             <img src="https://img.icons8.com/color/48/000000/google-logo.png" className='w-6 h-6 inline-block mr-2'/> 
                             Sign in with Google
                         </button>
-                        <button className='font-semibold shadow-sm border-solid border px-8 py-1 rounded border-cyan-500  mb-4 hover:bg-blue-600 hover:text-white text-center w-1/2 ml-1 '>
+                        <button className='font-semibold shadow-sm border-solid border px-8 py-3 rounded border-cyan-500  mb-4 hover:bg-blue-600 hover:text-white w-1/2 ml-1 whitespace-nowrap'>
                             <img src="https://img.icons8.com/color/48/000000/facebook-new.png" className='w-6 h-6 inline-block  mr-2'/>
                             Sign in with Facebook
                         </button>
                     </div>
-                    <div class="relative  mt-6">
-                        <div class="w-full h-px bg-gray-300"></div>
-                        <span class="bg-white text-sm text-gray-400 px-4 absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 flex justify-center">OR Sign In</span>
+                    <div className="relative  mt-6">
+                        <div className="w-full h-px bg-gray-300"></div>
+                        <span className="bg-white text-sm text-semibold text-gray-400 px-4 absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 flex justify-center">OR</span>
                     </div>
                     <div className='mt-2'>
                         <div className='mt-4'>
