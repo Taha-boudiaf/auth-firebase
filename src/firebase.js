@@ -1,7 +1,6 @@
-import { initializeApp,} from "firebase/app";
-import {auth } from "firebase/auth"
-import {firestore} from "firebase/firestore"
-
+import { initializeApp} from "firebase/app";
+import {getFirestore} from 'firebase/firestore'
+import {getAuth} from 'firebase/auth'
 const firebaseConfig = {
   apiKey: "AIzaSyBV3C7fwqpF8wAE4RnpcB7mkVqSVBqw1cg",
   authDomain: "let-s-chat-7f491.firebaseapp.com",
@@ -12,9 +11,13 @@ const firebaseConfig = {
   measurementId: "G-JTXN95V5CE"
 };
 
+// init firebase app 
 
-const App = initializeApp(firebaseConfig);
-const db = firestore()
-const auth = auth()
+const app = initializeApp(firebaseConfig)
 
-export {auth,db,App};
+// init services <<firestore / auth >>
+
+const db = getFirestore()
+
+export const auth = getAuth(app)
+export default app
