@@ -14,7 +14,7 @@ export const SigninPage = () =>(
     
 
 export const SignupPage = () =>(
-<Suspense fallback={<Loading/>}>
+    <Suspense fallback={<Loading/>}>
         <Signup/>
     </Suspense>)
     
@@ -22,9 +22,9 @@ export const SignupPage = () =>(
 
 
 export const HomePage = () =>(
-<Suspense fallback={<Loading/>}>
-    <Home/>
-</Suspense>
+    <Suspense fallback={<Loading/>}>
+        <Home/>
+    </Suspense>
 )
     
 
