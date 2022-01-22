@@ -5,7 +5,7 @@ import {  SigninPage,HomePage,SignupPage } from './component/AsyncList';
 import { UserAuthContextProvider } from './context/AuthContext';
 
 import ProtectedRoute from './component/pages/ProtectedRoute';
-import Chat from './component/Chat'
+import Chat from './component/pages/Chat'
 
 import './App.css';
 
