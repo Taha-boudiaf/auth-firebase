@@ -30,7 +30,8 @@ export const UserAuthContextProvider = ({children}) => {
     // props value to pass data to children 
     const value = {
         currentUser,
-        Signup
+        Signup,
+        signin
     }
     // auth provider 
     return (
