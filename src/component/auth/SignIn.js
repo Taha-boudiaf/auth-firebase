@@ -1,24 +1,28 @@
 import React from 'react'
-import { Link ,useNavigate} from 'react-router-dom'
+import { Link,useNavigate} from 'react-router-dom'
 import { useState } from 'react/cjs/react.development'
 import { useAuth } from '../../context/AuthContext'
 
 const Login = () => {
-    const [email,setEmail] = useState('')
-    const [password,setPassword] = useState('')
-    const [error,setError] = useState('')
-    const {Signin} =  useAuth();
+    const [email,setEmail] = useState('');
+    const [password,setPassword] = useState('');
+    // context auth 
+    const {Signin} = useAuth();
+    // error message 
+    const[error,setError] = useState('')
+    // to redirect path replaced useHistory
     const Navigate = useNavigate()
-    
-    const handleSubmit = async(e)=>{
+    // submit function 
+    const handleSubmit = async (e)=> {
         e.preventDefault();
         setError('')
-        try {
-           await Signin(email,password);
-            Navigate("/chat");
-        } catch (error) {
-            setError(error.message)
-        }
+       try {
+           await Signin(email,password)
+            //navigate replaced history.push
+           Navigate("/chat");
+       } catch (err) {
+           setError(err.message);
+       } 
     }
     return (
         <div className='flex justify-center mt-16 mb-16'>   

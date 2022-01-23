@@ -9,8 +9,11 @@ const Signup = () => {
     const [email,setEmail] = useState('');
     const [userName,setUserName] = useState('');
     const [password,setPassword] = useState('');
+    // context auth 
     const {Signup} = useAuth();
+    // error message 
     const[error,setError] = useState('')
+    // to redirect path replaced useHistory
     const Navigate = useNavigate()
     // submit function 
     const handleSubmit = async (e)=> {
@@ -18,7 +21,8 @@ const Signup = () => {
         setError('')
        try {
            await Signup(email,password)
-           Navigate("/chat");
+            //navigate replaced history.push
+           Navigate("/");
        } catch (err) {
            setError(err.message);
        } 
