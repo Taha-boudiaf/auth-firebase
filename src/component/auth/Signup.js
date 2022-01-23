@@ -8,17 +8,17 @@ const Signup = () => {
     // data 
     const [email,setEmail] = useState('');
     const [userName,setUserName] = useState('');
-    const [password,setPassword] = useState();
+    const [password,setPassword] = useState('');
     const {Signup} = useAuth();
     const[error,setError] = useState('')
-    const Navigate = useNavigate('')
+    const Navigate = useNavigate()
     // submit function 
     const handleSubmit = async (e)=> {
         e.preventDefault();
         setError('')
        try {
            await Signup(email,password)
-           Navigate("/");
+           Navigate("/chat");
        } catch (err) {
            setError(err.message);
        } 

@@ -1,11 +1,9 @@
 import React from 'react';
 import {BrowserRouter as Router,Routes ,Route } from "react-router-dom";
-
-import {  SigninPage,HomePage,SignupPage } from './component/AsyncList';
+import {  SigninPage,HomePage,SignupPage,ChatPage } from './component/AsyncList';
 import { UserAuthContextProvider } from './context/AuthContext';
 
 import ProtectedRoute from './component/pages/ProtectedRoute';
-import Chat from './component/pages/Chat'
 
 import './App.css';
 
@@ -17,10 +15,9 @@ function App() {
         <UserAuthContextProvider>
           <Router>
             <Routes>
-              <Route exact path='/home' element={<HomePage/>}/>
-              <Route element={<ProtectedRoute/>}>
-                <Route path='/chat' element={<Chat/>} />
-              </Route>
+              <Route exact path='/' element={<HomePage/>}/> 
+              <Route path='/chat' element={<ChatPage/>}/> 
+              <Route path='/chat' element={<ProtectedRoute><ChatPage/></ProtectedRoute>} />
               <Route path='/signin' element={<SigninPage/>}/>  
               <Route path='/signup' element={<SignupPage/>}/>  
             </Routes>    

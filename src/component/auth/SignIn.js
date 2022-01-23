@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate} from 'react-router-dom'
 import { useState } from 'react/cjs/react.development'
 import { useAuth } from '../../context/AuthContext'
 
@@ -8,12 +8,14 @@ const Login = () => {
     const [password,setPassword] = useState('')
     const [error,setError] = useState('')
     const {Signin} =  useAuth();
+    const Navigate = useNavigate()
+    
     const handleSubmit = async(e)=>{
         e.preventDefault();
         setError('')
         try {
            await Signin(email,password);
-
+            Navigate("/chat");
         } catch (error) {
             setError(error.message)
         }
@@ -24,11 +26,11 @@ const Login = () => {
                 <h1 className='text-5xl font-bold mb-6 text-center'>Sign In</h1>
                     <div className='relative mt-6 flex justify-between '>
                         <button className='font-semibold shadow-sm border-solid border px-8 py-3 rounded border-red-500  mb-4 hover:bg-red-500 hover:text-white w-1/2 mr-1'>
-                            <img src="https://img.icons8.com/color/48/000000/google-logo.png" className='w-6 h-6 inline-block mr-2'/> 
+                            <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="google-logo" className='w-6 h-6 inline-block mr-2'/> 
                             Sign in with Google
                         </button>
                         <button className='font-semibold shadow-sm border-solid border px-8 py-3 rounded border-cyan-500  mb-4 hover:bg-blue-600 hover:text-white w-1/2 ml-1 whitespace-nowrap text-center'>
-                            <img src="https://img.icons8.com/color/48/000000/facebook-new.png" className='w-6 h-6 inline-block  mr-2'/>
+                            <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt='facebook-logo' className='w-6 h-6 inline-block  mr-2'/>
                             Sign in with Facebook
                         </button>
                     </div>
@@ -41,17 +43,18 @@ const Login = () => {
                             <label className='text-gray-600 font-semibold'>Email</label>
                             <div className='relative'>
                                 <i className="fas fa-at absolute h-full w-12 justify-center flex items-center text-gray-400 "></i>
-                                <input type="email" value={email} onChange={(e)=>e.target.value} placeholder='example@email.com' className='focus:border-blue-500 focus:ring-1 focus:ring-blue-600 border-solid border shadow-sm border-slate-300 px-4 py-4 my-2 w-full rounded pl-10'/>
+                                <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder='example@email.com' className='focus:border-blue-500 focus:ring-1 focus:ring-blue-600 border-solid border shadow-sm border-slate-300 px-4 py-4 my-2 w-full rounded pl-10'/>
                             </div>
                         </div>
                         <div className='mt-4'>
                             <label className='text-gray-600 font-semibold'>Password</label>
                             <div className='relative'>
                                 <i className="fas fa-fingerprint absolute h-full w-12 justify-center flex items-center text-gray-400 "></i>
-                                <input type="password" value={password} onChange={(e)=> e.target.value} placeholder='********' className='focus:ring-blue-600 border-solid border shadow-sm border-slate-300 px-4 py-4 my-2  w-full rounded pl-10'/>
+                                <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder='********' className='focus:ring-blue-600 border-solid border shadow-sm border-slate-300 px-4 py-4 my-2  w-full rounded pl-10'/>
                             </div> 
                         </div>
                         <span className='text-gray-400 flex justify-end'>Forget your <a href='#' className='ml-1 text-blue-600 underline underline-offset-2'> Password ?</a> </span>                      
+                        {error && <div className='bg-red-300 w-full px-4 py-4 rounded mt-6'>{error}</div>}
                     </div>
                     <div className='mt-6 flex justify-between'>
                         <button type='submit' onClick={handleSubmit} className='font-semibold border-solid border mt-6 px-16 py-3 rounded border-blue-600 bg-blue-600  shadow-sm text-white w-full'>Sign in</button>
