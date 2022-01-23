@@ -4,7 +4,13 @@ import Loading from './pages/Loading'
 const Home = lazy(() => import('./pages/Home'));
 const Signin = lazy(() => import('./auth/Signin'));
 const Signup = lazy(() => import('./auth/Signup'));
+const Chat = lazy (()=> import('./pages/Chat'))
 
+export const ChatPage = () =>(
+    <Suspense fallback={<Loading/>}>
+        <Chat/>
+    </Suspense>
+)
 
 export const SigninPage = () =>(
     <Suspense fallback={<Loading/>}>
@@ -12,15 +18,12 @@ export const SigninPage = () =>(
     </Suspense>
 )
     
-
 export const SignupPage = () =>(
     <Suspense fallback={<Loading/>}>
         <Signup/>
-    </Suspense>)
+    </Suspense>
+)
     
-
-
-
 export const HomePage = () =>(
     <Suspense fallback={<Loading/>}>
         <Home/>
