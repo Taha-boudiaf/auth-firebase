@@ -11,21 +11,24 @@ export const useAuth = ()=>{
 
 export const UserAuthContextProvider = ({children}) => {
     // state to save users 
-    const [currentUser,setCurentUser] = useState()
+    const [currentUser,setCurentUser] = useState('')
     console.log(currentUser);
     // function to create user with email and password 
     const Signup =(email,password) =>{
         return createUserWithEmailAndPassword(auth,email,password);
     }
     // function to signin 
-    const Signin = (email,password)=>{
+    const Signin =(email,password) =>{
         return signInWithEmailAndPassword(auth,email,password);
     }
     // if user signup move data to state <<currentUser>>
     useEffect(() => {
         const Users = onAuthStateChanged(auth, (user)=>{
-            setCurentUser(user)
-            
+            const subscribe = setCurentUser(user)
+            console.log(user);
+            return () =>{
+                subscribe()
+            }
         })
         return Users
         
