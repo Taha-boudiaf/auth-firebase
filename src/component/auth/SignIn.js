@@ -4,10 +4,11 @@ import { useState } from 'react/cjs/react.development'
 import { useAuth } from '../../context/AuthContext'
 
 const Login = () => {
+    // data email and password
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
-    // context auth 
-    const {Signin} = useAuth();
+    // context auth sign in and google
+    const {Signin,google} = useAuth();
     // error message 
     const[error,setError] = useState('')
     // to redirect path replaced useHistory
@@ -24,12 +25,21 @@ const Login = () => {
            setError(err.message);
        } 
     }
+    const handlegoogle = async (e)=>{
+        e.preventDefault()
+        try {
+            await google()
+            Navigate('/chat')
+        } catch (error) {
+            
+        }
+    }
     return (
         <div className='flex justify-center mt-16 mb-16'>   
             <form className='flex flex-col bg-white rounded px-10 py-10 shadow-lg content-center'>
                 <h1 className='text-5xl font-bold mb-6 text-center'>Sign In</h1>
                     <div className='relative mt-6 flex justify-between '>
-                        <button className='font-semibold shadow-sm border-solid border px-8 py-3 rounded border-red-500  mb-4 hover:bg-red-500 hover:text-white w-1/2 mr-1'>
+                        <button className='font-semibold shadow-sm border-solid border px-8 py-3 rounded border-red-500  mb-4 hover:bg-red-500 hover:text-white w-1/2 mr-1' onClick={handlegoogle}>
                             <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="google-logo" className='w-6 h-6 inline-block mr-2'/> 
                             Sign in with Google
                         </button>
