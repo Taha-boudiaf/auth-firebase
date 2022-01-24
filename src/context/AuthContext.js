@@ -21,6 +21,10 @@ export const UserAuthContextProvider = ({children}) => {
     const Signin =(email,password) =>{
         return signInWithEmailAndPassword(auth,email,password);
     }
+    // function to signout 
+    const Signout = ()=>{
+        return signOut(auth)
+    }
     // if user signup move data to state <<currentUser>>
     useEffect(() => {
         const Users = onAuthStateChanged(auth, (user)=>{
@@ -38,6 +42,7 @@ export const UserAuthContextProvider = ({children}) => {
         currentUser,
         Signup,
         Signin,
+        Signout,
     }
     // auth provider 
     return (
