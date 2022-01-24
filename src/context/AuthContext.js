@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import {createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,onAuthStateChanged,GoogleAuthProvider, signInWithPopup } from "firebase/auth"
+import {createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,onAuthStateChanged,FacebookAuthProvider ,GoogleAuthProvider, signInWithPopup } from "firebase/auth"
 import { auth } from '../firebase'
 
 const AuthContext = createContext()
@@ -26,15 +26,19 @@ export const UserAuthContextProvider = ({children}) => {
         return signOut(auth)
     }
     // sign in with google 
-    const google =()=> {
+    const google = () => {
         const googleProvider = new GoogleAuthProvider()
         return signInWithPopup(auth,googleProvider)
+    }
+    // sign in with facebook 
+    const facebook = () => {
+        const facebookProvider = new FacebookAuthProvider();
+        return signInWithPopup(auth,facebookProvider)
     }
     // if user signup move data to state <<currentUser>>
     useEffect(() => {
         const Users = onAuthStateChanged(auth, (user)=>{
             const subscribe = setCurentUser(user)
-            console.log(user);
             return () =>{
                 subscribe()
             }
@@ -48,7 +52,8 @@ export const UserAuthContextProvider = ({children}) => {
         Signup,
         Signin,
         Signout,
-        google
+        google,
+        facebook
     }
     // auth provider 
     return (
