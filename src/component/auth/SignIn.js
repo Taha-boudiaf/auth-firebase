@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link,useNavigate} from 'react-router-dom'
+import { Link,useNavigate,useLocation} from 'react-router-dom'
 import { useState } from 'react/cjs/react.development'
 import { useAuth } from '../../context/AuthContext'
 
@@ -8,11 +8,12 @@ const Login = () => {
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
     // context auth sign in and google
-    const {Signin,google,facebook} = useAuth();
+    const {Signin,google,facebook,resetPAssword} = useAuth();
     // error message 
     const[error,setError] = useState('')
     // to redirect path replaced useHistory
     const Navigate = useNavigate()
+    const {state} = useLocation();
     // submit function 
     const handleSubmit = async (e)=> {
         e.preventDefault();
@@ -20,7 +21,7 @@ const Login = () => {
        try {
            await Signin(email,password)
             //navigate replaced history.push
-           Navigate("/chat");
+           Navigate(state?.path||"/chat");
        } catch (err) {
            setError(err.message);
        } 
@@ -41,6 +42,15 @@ const Login = () => {
         try {
             await facebook()
             Navigate('/chat')
+        } catch (error) {
+            
+        }
+    }
+    // function to reset password <<send email to reset>>
+    const handlePassword = async(e) =>{
+        e.preventDefault()
+        try {
+            await resetPAssword(email)
         } catch (error) {
             
         }
@@ -78,7 +88,7 @@ const Login = () => {
                                 <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder='********' className='focus:ring-blue-600 border-solid border shadow-sm border-slate-300 px-4 py-4 my-2  w-full rounded pl-10'/>
                             </div> 
                         </div>
-                        <span className='text-gray-400 flex justify-end'>Forget your <a href='#' className='ml-1 text-blue-600 underline underline-offset-2'> Password ?</a> </span>                      
+                        <span className='text-gray-400 flex justify-end'>Forget your <a href='#' className='ml-1 text-blue-600 underline underline-offset-2' onClick={handlePassword}> Password ?</a> </span>                      
                         {error && <div className='bg-red-300 w-full px-4 py-4 rounded mt-6'>{error}</div>}
                     </div>
                     <div className='mt-6 flex justify-between'>
