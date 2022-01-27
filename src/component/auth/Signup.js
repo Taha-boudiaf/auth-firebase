@@ -10,7 +10,7 @@ const Signup = () => {
     const [userName,setUserName] = useState('');
     const [password,setPassword] = useState('');
     // context auth 
-    const {Signup} = useAuth();
+    const {Signup,facebook,google} = useAuth();
     // error message 
     const[error,setError] = useState('')
     // to redirect path replaced useHistory
@@ -27,6 +27,27 @@ const Signup = () => {
            setError(err.message);
        } 
     }
+    // function to sign with google
+    const handleGoogle = async (e)=>{
+        e.preventDefault()
+        try {
+            await google()
+            Navigate('/chat')
+        } catch (error) {
+            setError(error.message);
+            
+        }
+    }
+    // function to sign in with facebook 
+    const handleFacebook = async(e)=>{
+        e.preventDefault()
+        try {
+            await facebook()
+            Navigate('/chat')
+        } catch (error) {
+            setError(error.message);
+        }
+    }
     return (
         <div className='flex justify-center mt-16 mb-16'>   
         
@@ -34,11 +55,11 @@ const Signup = () => {
             
                 <h1 className='text-5xl font-bold mb-6 text-center'>Sign Up</h1>
                     <div className='relative mt-6 flex justify-between'>
-                        <button className='font-semibold shadow-sm border-solid border px-8 py-3 rounded border-red-500  mb-4 hover:bg-red-500 hover:text-white text-center w-1/2 mr-1'>
+                        <button onClick={handleGoogle} className='font-semibold shadow-sm border-solid border px-8 py-3 rounded border-red-500  mb-4 hover:bg-red-500 hover:text-white text-center w-1/2 mr-1'>
                             <img src="https://img.icons8.com/color/48/000000/google-logo.png" className='w-6 h-6 inline-block mr-2'/> 
                             Sign in with Google
                         </button>
-                        <button className='font-semibold shadow-sm border-solid border px-8 py-3 rounded border-cyan-500  mb-4 hover:bg-blue-600 hover:text-white text-center w-1/2 ml-1 whitespace-nowrap'>
+                        <button onClick={handleFacebook} className='font-semibold shadow-sm border-solid border px-8 py-3 rounded border-cyan-500  mb-4 hover:bg-blue-600 hover:text-white text-center w-1/2 ml-1 whitespace-nowrap'>
                             <img src="https://img.icons8.com/color/48/000000/facebook-new.png" className='w-6 h-6 inline-block  mr-2'/>
                             Sign in with Facebook
                         </button>
