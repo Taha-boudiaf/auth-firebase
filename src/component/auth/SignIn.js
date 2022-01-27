@@ -33,6 +33,7 @@ const Login = () => {
             await google()
             Navigate('/chat')
         } catch (error) {
+           setError(error.message);
             
         }
     }
@@ -43,7 +44,7 @@ const Login = () => {
             await facebook()
             Navigate('/chat')
         } catch (error) {
-            
+           setError(error.message);
         }
     }
     // function to reset password <<send email to reset>>
@@ -52,7 +53,7 @@ const Login = () => {
         try {
             await resetPAssword(email)
         } catch (error) {
-            
+            setError(error.message);
         }
     }
     return (
@@ -64,8 +65,8 @@ const Login = () => {
                             <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="google-logo" className='w-6 h-6 inline-block mr-2'/> 
                             Sign in with Google
                         </button>
-                        <button className='font-semibold shadow-sm border-solid border px-8 py-3 rounded border-cyan-500  mb-4 hover:bg-blue-600 hover:text-white w-1/2 ml-1 whitespace-nowrap text-center'>
-                            <img onClick={handleFacebook} src="https://img.icons8.com/color/48/000000/facebook-new.png" alt='facebook-logo' className='w-6 h-6 inline-block  mr-2'/>
+                        <button onClick={handleFacebook} className='font-semibold shadow-sm border-solid border px-8 py-3 rounded border-cyan-500  mb-4 hover:bg-blue-600 hover:text-white w-1/2 ml-1 whitespace-nowrap text-center'>
+                            <img  src="https://img.icons8.com/color/48/000000/facebook-new.png" alt='facebook-logo' className='w-6 h-6 inline-block  mr-2'/>
                             Sign in with Facebook
                         </button>
                     </div>
