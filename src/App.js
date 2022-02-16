@@ -11,8 +11,8 @@ import './App.css';
 function App() {
   return (
     <>
+      <Navbar/>
       <div className="container mx-auto">
-        <Navbar/>
         <UserAuthContextProvider>
           <Router>
             <Routes>
