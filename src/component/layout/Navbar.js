@@ -1,9 +1,9 @@
 /* This example requires Tailwind CSS v2.0+ */
-import React  from 'react'
+import React ,{useState} from 'react'
 const Navbar = () => {
-    const [open, setOpen] = React.useState(false);
-    const [flyer, setFlyer] = React.useState(false);
-    const [flyerTwo, setFlyerTwo] = React.useState(false);
+    const [open, setOpen] = useState(false);
+    const [flyer, setFlyer] = useState(false);
+    const [flyerTwo, setFlyerTwo] = useState(false);
   
     return (
       <>
