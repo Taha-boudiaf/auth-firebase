@@ -12,7 +12,6 @@ export const useAuth = ()=>{
 export const UserAuthContextProvider = ({children}) => {
     // state to save users 
     const [currentUser,setCurentUser] = useState('')
-    console.log(currentUser);
     // function to create user with email and password 
     const Signup =(email,password) =>{
         return createUserWithEmailAndPassword(auth,email,password);
