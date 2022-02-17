@@ -1,15 +1,14 @@
 import React,{lazy, Suspense} from 'react'
 import Loading from './pages/Loading'
 
-const Home = lazy(() => import('./pages/Home'));
 const Signin = lazy(() => import('./auth/Signin'));
 const Signup = lazy(() => import('./auth/Signup'));
-const Chat = lazy (()=> import('./pages/Chat'))
+const Home = lazy (()=> import('./pages/Home'))
 const PageNotFound = lazy (()=> import('./pages/PageNotFound'))
 
-export const ChatPage = () =>(
+export const HomePage = () =>(
     <Suspense fallback={<Loading/>}>
-        <Chat/>
+        <Home/>
     </Suspense>
 )
 
@@ -25,11 +24,7 @@ export const SignupPage = () =>(
     </Suspense>
 )
     
-export const HomePage = () =>(
-    <Suspense fallback={<Loading/>}>
-        <Home/>
-    </Suspense>
-)
+
 
 export const NotFoundPage = () =>(
     <Suspense fallback={<Loading/>}>
