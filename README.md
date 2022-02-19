@@ -4,6 +4,7 @@ Auth Firebase is web app lets you log in and sign up with email & password , goo
 # ScreenShot
 ![signin](ScreenShot/auth/Signin.png)
 ![signup](ScreenShot/auth/Signup.png)
+![signup](ScreenShot/auth/HomePage.png)
 # Technologies used
 
 * React 
