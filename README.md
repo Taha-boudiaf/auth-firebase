@@ -1,5 +1,5 @@
 # Auth Firebase
-Auth Firebase is web app 
+Auth Firebase is web app lets you log in and sign up with email & password , google and facebook authentication 
 
 # ScreenShot
 ![signin](/ScreenShot/auth/signin.png)
