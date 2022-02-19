@@ -16,3 +16,5 @@ npm install
 yarn 
 
 ```
+#Usage
+Before you run the project, make sure to create a >.env.local file  
