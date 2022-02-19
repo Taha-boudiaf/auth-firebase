@@ -1,21 +1,22 @@
 # Auth Firebase
 Auth Firebase is web app 
 
-#ScreenShot
+# ScreenShot
 ![signin](/ScreenShot/auth/signin.png)
 
-#Technologies used
+# Technologies used
 
 * React 
 * Tailwind Css
 * Firebase
-#Installing dependencies
-This repo uses Yarn and npm 
+# Installing dependencies
+This repo uses Yarn and npm to install dependencies run this command :
+
 ```
 npm install 
 yarn 
 ```
-#Usage
+# Usage
 Before you run the project, make sure to create a `.env.local` file ,add your `config` firebase 
 To run the project:
 
