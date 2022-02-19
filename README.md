@@ -19,7 +19,7 @@ yarn
 ```
 # Usage
 Before you run the project, make sure to create a `.env.local` file ,add your `config` firebase 
-To run the project:
+ - To run the project:
 
 ```
 npm run start / yarn start
