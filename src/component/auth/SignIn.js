@@ -21,7 +21,7 @@ const Login = () => {
        try {
            await Signin(email,password)
             //navigate replaced history.push
-           Navigate(state?.path||"/chat");
+           Navigate(state?.path||"/");
        } catch (err) {
            setError(err.message);
        } 
@@ -31,7 +31,7 @@ const Login = () => {
         e.preventDefault()
         try {
             await google()
-            Navigate('/chat')
+            Navigate('/')
         } catch (error) {
            setError(error.message);
             

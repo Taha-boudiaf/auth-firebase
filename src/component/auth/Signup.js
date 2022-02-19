@@ -32,7 +32,7 @@ const Signup = () => {
         e.preventDefault()
         try {
             await google()
-            Navigate('/chat')
+            Navigate('/')
         } catch (error) {
             setError(error.message);
             
@@ -43,7 +43,7 @@ const Signup = () => {
         e.preventDefault()
         try {
             await facebook()
-            Navigate('/chat')
+            Navigate('/')
         } catch (error) {
             setError(error.message);
         }
