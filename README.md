@@ -3,7 +3,7 @@ Auth Firebase is web app
 
 # ScreenShot
 ![signin](/ScreenShot/auth/signin.png)
-
+![signup](/ScreenShot/auth/signin.png)
 # Technologies used
 
 * React 
@@ -21,5 +21,5 @@ Before you run the project, make sure to create a `.env.local` file ,add your `c
 To run the project:
 
 ```
-npm run start
+npm run start / yarn start
 ```
